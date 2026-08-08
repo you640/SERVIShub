@@ -12,7 +12,8 @@
 | Supabase init + Auth SSR + middleware | Done (cloud create blokovaný free limitom) |
 | Prisma v7 + init migrácia + RLS draft | Partial (apply proti DB TODO) |
 | README + CLAUDE.md + `.env.example` | Done |
-| `.github/` CI | **TODO** |
+| `.github/` CI | Done |
+| Security headers + Sentry stub | Done (Sentry čaká na DSN — pozri [T0-INFRA](T0-INFRA.md)) |
 
 ---
 
@@ -159,5 +160,5 @@ Aktuálny batch: **[docs/NEXT-5.md](NEXT-5.md)** (schema gap · RLS · CI · aut
 
 1. ~~Rozšíriť Prisma o Payment / Payout / Dispute / Message / Notification + geo polia~~ (v NEXT-5)
 2. ~~`.github/workflows/ci.yml`~~ (v NEXT-5)
-3. T0 infra zvyšok: Supabase link, Vercel, Sentry, Auth E2E UI
+3. T0 infra zvyšok: Supabase link, Vercel, Sentry DSN — stav a blokéry v [T0-INFRA.md](T0-INFRA.md); Auth E2E UI po Supabase link
 4. Sprinty T1 → T4 podľa metrík vyššie

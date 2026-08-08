@@ -69,8 +69,8 @@ supabase status          # local URLs + keys
 
 ## Current focus
 
-1. Next 5 (T0 batch) — pozri [docs/NEXT-5.md](docs/NEXT-5.md)
-2. Napojiť Supabase cloud + `pnpm db:migrate`
+1. ~~Next 5 (T0 batch)~~ — hotové, pozri [docs/NEXT-5.md](docs/NEXT-5.md)
+2. T0 infra blokéry + manuálne kroky — [docs/T0-INFRA.md](docs/T0-INFRA.md) (Supabase free limit, Vercel link, Sentry DSN)
 3. MVP sprinty T1–T4 — [docs/BACKLOG.md](docs/BACKLOG.md)
 
 ## Infra checklist (manuálne)
