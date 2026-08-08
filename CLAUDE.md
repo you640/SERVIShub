@@ -69,9 +69,9 @@ supabase status          # local URLs + keys
 
 ## Current focus
 
-1. Scaffold hotový — napojiť Supabase cloud projekt (free limit blokoval CLI create)
-2. Spustiť Prisma migrate proti local/cloud Postgres
-3. MVP: auth + profil profíka + vyhľadávanie + rezervácie
+1. Next 5 (T0 batch) — pozri [docs/NEXT-5.md](docs/NEXT-5.md)
+2. Napojiť Supabase cloud + `pnpm db:migrate`
+3. MVP sprinty T1–T4 — [docs/BACKLOG.md](docs/BACKLOG.md)
 
 ## Infra checklist (manuálne)
 

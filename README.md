@@ -51,6 +51,8 @@ Modely: `Profile`, `Provider`, `Category`, `Service`, `ServiceArea`, `Availabili
 
 Pozri [CLAUDE.md](./CLAUDE.md) — stack, commands, infra checklist (Supabase/Stripe), reuse cesty z `mistral-booking-whitelabel`.
 
+Produktový backlog (sprinty T0–T4, monetizácia, komponenty): [docs/BACKLOG.md](./docs/BACKLOG.md).
+
 ## Design tokens
 
 - Primary: `#00796B`

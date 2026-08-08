@@ -18,8 +18,17 @@ function createPrismaClient() {
   return new PrismaClient({ adapter });
 }
 
-export const prisma = globalForPrisma.prisma ?? createPrismaClient();
+/** Lazy proxy — avoids throwing at import time when DATABASE_URL is unset (e.g. lint). */
+export const prisma: PrismaClient =
+  globalForPrisma.prisma ??
+  new Proxy({} as PrismaClient, {
+    get(_target, prop, receiver) {
+      const client = (globalForPrisma.prisma ??= createPrismaClient());
+      const value = Reflect.get(client, prop, receiver);
+      return typeof value === "function" ? value.bind(client) : value;
+    },
+  });
 
 if (process.env.NODE_ENV !== "production") {
-  globalForPrisma.prisma = prisma;
+  // Eagerly cache in dev after first real use via Proxy
 }

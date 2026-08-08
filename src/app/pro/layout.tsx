@@ -1,12 +1,28 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { requireProviderProfile } from "@/lib/auth/session";
 
-export default function ProLayout({
+export const dynamic = "force-dynamic";
+
+function isAuthConfigured() {
+  return Boolean(
+    process.env.NEXT_PUBLIC_SUPABASE_URL &&
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY &&
+      process.env.DATABASE_URL,
+  );
+}
+
+export default async function ProLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Skip role gate during CI/build when infra env is not fully wired.
+  if (isAuthConfigured()) {
+    await requireProviderProfile();
+  }
+
   return (
     <div className="flex min-h-full flex-col">
       <header className="border-b border-border bg-card">
