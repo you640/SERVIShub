@@ -56,6 +56,17 @@ Supabase link, Auth E2E, Vercel preview, GitHub Actions, Sentry.
 Provider onboarding (bez full KYC), CRUD services, search (mesto, kategória, cena, rating).  
 **Metrika:** ≥ 10 seed providerov; search P95 < 400 ms.
 
+**Stav (2026-08-09):** kód hotový, čaká na live DB (Supabase link — pozri [T0-INFRA](T0-INFRA.md)).
+
+- [x] `/pro/profil` — onboarding forma (businessName, bio, IČO/DIČ, mesto, PSČ, kategórie), zod validácia, server action, guard PROVIDER/ADMIN
+- [x] `/pro/sluzby` — CRUD služieb (list + create `/nova` + edit `/[id]`, soft-delete cez `isActive`), server actions
+- [x] `/hladat` — reálny search cez Prisma (q, mesto, kategória, cena, min. rating, sort rating/cena, stránkovanie 12/str., GET forma pre SEO/share)
+- [x] `/p/[slug]` — verejný profil (generateMetadata, JSON-LD LocalBusiness, služby, recenzie placeholder, 404 pri neznámom slug)
+- [x] Data layer `src/lib/data/*` + zod schémy `src/lib/validation/*`; graceful empty states bez DATABASE_URL
+- [x] Schema: Provider↔Category M:N (`_CategoryToProvider`) + migrácia `20260809013500` + RLS
+- [ ] Overiť proti live DB: migrácie apply, seed kategórií + ≥ 10 providerov, search P95 < 400 ms
+- [ ] KYC (Veriff/Onfido) — mimo T1 scope
+
 ### T2 — Rezervácie + kalendár
 Slots (reuse mistral patterns), booking create/cancel, conflict guards, Resend confirm.  
 **Metrika:** 0 double-bookings v e2e; happy-path success ≥ 95 %.

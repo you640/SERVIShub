@@ -152,6 +152,7 @@ model Provider {
   updatedAt          DateTime           @updatedAt @map("updated_at")
 
   profile       Profile         @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  categories    Category[]
   services      Service[]
   serviceAreas  ServiceArea[]
   availability  Availability[]
@@ -180,7 +181,8 @@ model Category {
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
 
-  services Service[]
+  services  Service[]
+  providers Provider[]
 
   @@map("categories")
 }

@@ -9,7 +9,7 @@
 - **Status:** active (scaffold)
 - **Primary path:** `~/HUB/01-Projekty/ServisHUB-SK`
 - **Prod URL:** TBD
-- **Repo:** local git (`main`)
+- **Repo:** https://github.com/you640/SERVIShub.git (`main`; backup remote `upstream-auto` → youh4ck3dme/servishub-sk)
 
 ## Stack (pin exact versions when critical)
 
