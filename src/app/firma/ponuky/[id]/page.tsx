@@ -16,6 +16,7 @@ export default async function EditJobPage({ params }: { params: Promise<{ id: st
   return <section className="space-y-6">
     <Link href="/firma/dashboard" className="text-sm underline">← Dashboard</Link>
     <div className="flex items-center justify-between"><h1 className="text-3xl font-semibold">Upraviť ponuku</h1><span className="text-sm text-muted-foreground">{job.status}</span></div>
+    <Link href={"/firma/ponuky/"+job.id+"/uchadzaci"} className="inline-block rounded-md border px-4 py-2 text-sm">Zobraziť uchádzačov →</Link>
     <JobForm defaults={{
       id:job.id,title:job.title,description:job.description,employment:job.employment,
       remote:job.remote,location:job.location || '',salaryMin:String(job.salaryMin),
