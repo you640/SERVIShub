@@ -8,8 +8,8 @@ const formSchema=z.object({
   headline:z.string().trim().max(120),
   bio:z.string().trim().max(3000),
   location:z.string().trim().max(120),
-  githubUrl:z.union([z.literal(''),z.url().max(300)]),
-  linkedinUrl:z.union([z.literal(''),z.url().max(300)]),
+  githubUrl:z.union([z.literal(''),z.url({ protocol: /^https?$/ }).refine(url => url.length <= 300)]),
+  linkedinUrl:z.union([z.literal(''),z.url({ protocol: /^https?$/ }).refine(url => url.length <= 300)]),
   hourlyRate:z.union([z.literal(''),z.coerce.number().min(0).max(100000)]),
   skills:z.string().max(500).transform(s=>[...new Set(s.split(',').map(x=>x.trim()).filter(Boolean))].slice(0,25)),
 });
