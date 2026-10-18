@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 
 function safeNext(value: string | null): string {
-  return value && value.startsWith('/') && !value.startsWith('//') && !value.includes('\\') ? value : '/pro';
+  return value && value.startsWith('/') && !value.startsWith('//') && !value.includes('\\') ? value : '/';
 }
 export default function LoginPage() {
   const router = useRouter();

@@ -29,5 +29,5 @@ export async function GET(request: NextRequest) {
     console.error('[auth/callback] profile provisioning failed', cause);
     return NextResponse.redirect(new URL('/login?error=profile', url.origin));
   }
-  return NextResponse.redirect(new URL('/pro', url.origin));
+  return NextResponse.redirect(new URL(user.user_metadata?.account_type === 'employer' ? '/pro' : '/', url.origin));
 }
