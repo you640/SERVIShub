@@ -11,7 +11,7 @@ const companySchema = z.object({
   name: z.string().trim().min(2).max(120),
   description: z.string().trim().max(3000),
   location: z.string().trim().max(120),
-  website: z.union([z.literal(''), z.url().max(300)]),
+  website: z.union([z.literal(''), z.url({ protocol: /^https?$/ }).refine(url => url.length <= 300)]),
 });
 
 export async function createCompany(_previous: CompanyFormState, form: FormData): Promise<CompanyFormState> {
