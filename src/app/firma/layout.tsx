@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { requireRole } from '@/lib/auth/session';
+import { LogoutButton } from '@/components/auth/logout-button';
 export const dynamic = 'force-dynamic';
 
 export default async function EmployerLayout({ children }: { children: React.ReactNode }) {
@@ -9,7 +10,7 @@ export default async function EmployerLayout({ children }: { children: React.Rea
       <Link href="/" className="text-lg font-bold">Talent Marketplace</Link>
       <Link href="/firma/dashboard" className="text-sm">Dashboard</Link>
       <Link href="/firma/profil" className="text-sm">Nastavenia</Link>
-      <Link href="/praca" className="ml-auto text-sm">Pracovné ponuky</Link>
+      <Link href="/praca" className="ml-auto text-sm">Pracovné ponuky</Link><LogoutButton/>
     </nav></header>
     <main className="mx-auto max-w-6xl px-4 py-10">{children}</main>
   </div>;
