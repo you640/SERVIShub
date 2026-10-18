@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { requireProviderProfile } from "@/lib/auth/session";
+import { LogoutButton } from "@/components/auth/logout-button";
 
 export const dynamic = "force-dynamic";
 
@@ -36,9 +37,7 @@ export default async function ProLayout({
             </Link>
             <Badge>Pro dashboard</Badge>
           </div>
-          <Button variant="outline" size="sm" asChild>
-            <Link href="/login">Účet</Link>
-          </Button>
+          <LogoutButton />
         </div>
       </header>
       <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-4 py-8 md:flex-row">
