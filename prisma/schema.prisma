@@ -629,6 +629,7 @@ model JobAlert {
   frequency       JobAlertFrequency @default(DAILY)
   isActive        Boolean           @default(true) @map("is_active")
   lastDeliveredAt DateTime?         @map("last_delivered_at")
+  processingUntil   DateTime?         @map("processing_until")
   createdAt       DateTime          @default(now()) @map("created_at")
   updatedAt       DateTime          @updatedAt @map("updated_at")
 
