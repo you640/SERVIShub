@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 const requiredPrice = z.preprocess(
-  value => value === '' || value === null || value === undefined ? undefined : value,
+  value => value === '' || value === null || value === undefined ? Number.NaN : value,
   z.coerce.number().min(0).max(10000000),
 );
 
